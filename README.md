@@ -74,5 +74,5 @@ sudo docker-compose up
 ```
 
 Note:
-In the above yml example it uses a pre build version of the solr6 image stored on docker hub
+In the above yml example it uses a automatically build version of the [solr6 image](https://hub.docker.com/r/pdubois/solr6/) and [Alfresco](https://hub.docker.com/r/pdubois/docker-alfresco/) stored on docker hub
 
