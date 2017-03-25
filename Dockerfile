@@ -14,8 +14,7 @@ RUN apt-get install -y lsof && apt-get update && apt-get install -y vim
 
 COPY  entry.sh /
 RUN   chmod +x /entry.sh
-COPY  solr.in.sh .
-RUN   chmod +x /solr.in.sh && mv solr.in.sh /opt/alfresco-search-services
+
 
 # ENTRYPOINT ["/bin/bash"]
 ENTRYPOINT ["/entry.sh"]
