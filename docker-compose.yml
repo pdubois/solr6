@@ -16,6 +16,7 @@ services:
         - ALF_7=solr.port.EQ.8983
         - ALF_8=solr.port.ssl.EQ.8443
         - DB_CONTAINER_NAME=postgres
+        - SOLR_TRACKING=false
        depends_on:
         - postgres
         - solr6
