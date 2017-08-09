@@ -1,7 +1,7 @@
 # solr6-alfresco
 
 
-Generate a docker Ubuntu based image of alfresco-search-services-1.0.0 to be used with Alfresco Community v5.2.0 (see https://sourceforge.net/projects/alfresco/files/Alfresco%20201702%20Community/alfresco-search-services-1.0.0.zip) 
+Generate a docker Ubuntu based image of alfresco-search-services-1.1.0 to be used with Alfresco Community v5.2.0. (Installation comes from here https://sourceforge.net/projects/alfresco/files/Alfresco%20201707%20Community/alfresco-search-services-1.1.0.zip and the Alfresco image it should be used with is https://github.com/pdubois/docker-alfresco) 
 
 ## Description
 
@@ -9,7 +9,7 @@ Generate a docker Ubuntu based image of alfresco-search-services-1.0.0 to be use
  The Dockerfile builds from "dockerfile/ubuntu" see https://hub.docker.com/_/ubuntu/
  
 - Dockerfile defines an "ENTRYPOINT" performing following configurations when containter is started first:
-	- Unzip "alfresco-search-services-1.0.0.zip" under /opt/alfresco-search-services
+	- Unzip "alfresco-search-services-1.1.0.zip" under /opt/alfresco-search-services
 	- Create the default 2 cores executing ***solr start -force -a "-Dcreate.alfresco.defaults=alfresco,archive"***
 	- stop seach server
 	- Adjust ***alfresco.host*** in solrcore.properties of both cores to make search server to track container running Alfresco. The symbolic ip address of the Alfresco container is passed throuht*** ALFRESCO_HOST*** environment variable.
@@ -65,7 +65,11 @@ services:
        image: pdubois/solr6:latest
        environment:
         - ALFRESCO_HOST=alfresco
+        - XMS=2048
+        - XMX=2048
 ```
+
+In the example above **XMS** and **XMX** represents respectively the starting heap size and the maximum heap size.
 
 To start the stack:
 

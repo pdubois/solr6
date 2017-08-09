@@ -25,9 +25,11 @@ services:
        environment:
         - POSTGRES_PASSWORD=mysecretpassword
    solr6: 
-       image: "pdubois/solr6:latest"
+       image: "solr6:latest"
        environment:
         - ALFRESCO_HOST=alfresco
+        - XMS=3000
+        - XMX=3500
        
 
           
